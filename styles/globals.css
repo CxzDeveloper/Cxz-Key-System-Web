@@ -1,9 +1,113 @@
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 
 body {
-  background: radial-gradient(circle at top, #0f172a, #020617);
-  color: white;
+    font-family: 'Poppins', sans-serif;
+    color: #4B4B4B;
+    padding: 50px 30px;
+    padding-top: 100px;
+    background: #fff;
 }
+
+body.no-scroll {
+    overflow: hidden;
+}
+
+/* NAVBAR */
+.navbar {
+    background-color: white;
+    padding: 15px 32px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    transition: box-shadow 0.3s ease;
+}
+
+.navbar.scrolled {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* HERO */
+.hero-section {
+    padding: 20px 25px;
+    background-color: #F8F9FA;
+    border-radius: 12px;
+    margin-bottom: 30px;
+}
+
+/* KEY CARD */
+.key-card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 28px;
+    max-width: 420px;
+    margin: auto;
+    box-shadow: 0 15px 35px rgba(0,0,0,.08);
+    animation: fadeUp .5s ease;
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(25px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* BUTTON */
+.btn-dark {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 12px;
+    width: 100%;
+    transition: all .25s ease;
+}
+
+.btn-dark:hover {
+    background: #000;
+    transform: translateY(-1px);
+}
+
+/* QUEST */
+.quest-btn {
+    margin-top: 12px;
+}
+
+/* TIMER */
+.timer-box {
+    margin-top: 14px;
+    font-size: 13px;
+    text-align: center;
+    color: #666;
+}
+
+.timer-box span {
+    color: #333;
+    font-weight: 600;
+}
+
+/* VERIFY */
+.verify-btn {
+    margin-top: 16px;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    width: 100%;
+    background: #e0e0e0;
+    color: #999;
+}
+
+.verify-btn.active {
+    background: #333;
+    color: white;
+    cursor: pointer;
+}
+
+/* BLUR */
+.blur-overlay {
+    position: fixed;
+    inset: 0;
+    backdrop-filter: blur(8px);
+    background: rgba(255,255,255,.6);
+    z-index: 90;
+      }
