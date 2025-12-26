@@ -1,18 +1,30 @@
+import { useEffect, useState } from "react"
+
 export default function Generate() {
-  const key =
-    "CXZ-" + Math.random().toString(36).substring(2, 10).toUpperCase();
+  const [key, setKey] = useState("Generating...")
+
+  useEffect(() => {
+    fetch("/api/generate-key")
+      .then(res => res.json())
+      .then(data => setKey(data.key))
+  }, [])
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50">
-      <div className="bg-white border rounded-xl p-6 text-center shadow-sm">
-        <h2 className="text-xl font-bold mb-2">Your Key</h2>
-        <code className="block bg-gray-100 px-4 py-2 rounded-lg font-mono text-lg">
-          {key}
-        </code>
-        <p className="text-sm text-gray-500 mt-3">
-          Key valid for 48 hours
-        </p>
+    <>
+      <div className="key-card">
+        <h5>Your Key</h5>
+        <input
+          value={key}
+          readOnly
+          style={{
+            width: "100%",
+            padding: "10px",
+            borderRadius: "8px",
+            border: "1px solid #ddd",
+            marginTop: "10px"
+          }}
+        />
       </div>
-    </div>
-  );
+    </>
+  )
 }
