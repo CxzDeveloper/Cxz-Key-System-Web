@@ -1,3 +1,3 @@
 export default function handler(req, res) {
-  res.redirect('/generate');
+  res.status(200).json({ success: true })
 }
